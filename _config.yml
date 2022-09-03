@@ -1,11 +1,11 @@
-name: 
-author: 
-url: 
-baseurl: 
-resume_site: 
-description: 
-github_username: 
-github: 
+name: 一杯JAVA论余生
+author: Wei Wei
+url: https://antimelee.github.io
+baseurl:
+resume_site: https://antimelee.github.io
+description: The blog site of Wei
+github_username: antimelee
+github: https://github//antimelee
 plugins: [jekyll-paginate]
 permalink: /:year-:month-:day-:title
 paginate: 12
@@ -15,8 +15,8 @@ highlighter: rouge
 markdown: kramdown
 comments :
   gitalk :
-    clientID : 
-    clientSecret : 
-    repo : 
-    owner : 
-    admin : 
+    clientID :
+    clientSecret :
+    repo :
+    owner :
+    admin :
