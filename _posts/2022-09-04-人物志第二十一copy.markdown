@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "包不传第二十一"
-date: "2022-09-04 06:26:05 +0200"
+date: "2022-09-02 23:26:05 +0200"
 category: fiction
-thumbnail: /style/image/nosehillview.jpeg
+thumbnail: /style/image/thumbnail.png
+icon: note
 ---
 #人物志 包不传第二十一
 
