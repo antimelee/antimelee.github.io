@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <title>
+        Preattentive Feature Study
+    </title>
+    <script src="Stimulus.js"></script>
+    <script src="FactorSetting.js"></script>
+    <script src="FeatureSetting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <table class="table">
+            <tr>
+                <td class = "cell-size"><a href = "#" onclick = "SAVE()">SAVE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openHueWindow()">HUE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openSizeWindow('length')">LENGTH</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openSizeWindow('size')">SIZE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openLuminanceWindow()">LUMINANCE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openOrientationWindow()">ORIENTATION</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "openShapeWindow()">SHAPE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "handleFeatureClick(this,6)">CLOSURE</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "handleFeatureClick(this,7)">CURVATURE</a></td> 
+                <td class = "cell-size"><a href = "#" onclick = "handleFeatureClick(this,8)">DENSITY</a></td>
+                <td class = "cell-size"><a href = "#" onclick = "handleFeatureClick(this,7)">CURVATURE</a></td> 
+                <td class = "cell-size"><a href = "#" onclick = "handleFeatureClick(this,8)">DENSITY</a></td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+                <td class = "cell-size" id = "first-factor"><a href = "#" onclick="openNumberWindow(1)">Number_Target</a></td>
+            </tr>
+            <tr>
+                <td class = "cell-size" id = "Number_Elements"><a href = "#" onclick = "openNumberWindow(2)">Number_Elements</a></td>
+            </tr>
+            <tr>
+                <td class = "cell-size"><a href = "#" onclick = "openLocationSetWindow(true)">Target_Location_X</a></td>
+            </tr>
+            <tr>
+                <td class = "cell-size"><a href = "#" onclick = "openLocationSetWindow(false)">Target_Location_Y</a></td>
+            </tr>
+            <tr>
+                <td class = "cell-size"><a href = "#" onclick = "openPatternSetWindow()">Spatial Pattern</a></td>
+            </tr>
+            <tr>
+                <td class = "cell-size"><a href = "#" onclick = "openNumberWindow(3)">Proximity to Distractors</a></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="stimulus-container">
+    </div>
+    <div id="info-container">
+    </div>
+    <!--
+
+        Error message windoww
+
+     -->
+    <div id="error-window" class="modal">
+        <div class="modal-content">
+          <span class="close"  onclick="closeModal('error-window')">&times;</span>
+          <h2>Error</h2>
+          <p>You can only change length when all elements are rectangles</p>
+        </div>
+      </div>
+    <!--
+        The divs of factors.
+        There are 6 factors now(2023-06-30).
+            TARGET NUMBER, ELEMENT NUMBER, PROXIMITY share one div  ----number_input_window
+            TARGET LOCATION_X, TARGET LOCATION_Y share one div      ----location_choice_window
+            SPATIAL PATTERN's div                                   ----pattern_choice_window
+    -->
+    <!-- The window that get inputs of TARGET NUMBER, ELEMENT NUMBER, PROXIMITY -->
+    <div id="number_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('number_input_window')">&times;</span>
+            <h2 id = "number_title">Input your value</h2>
+            <label for="input">Input:</label>
+            <input type="number" id="number_input" name="input1"><br><br>
+            <button onclick="submitInput('number_input_window')">Submit</button>
+        </div>
+    </div>
+    <!-- The window that get inputs of TARGET LOCATION RESTRICTION -->
+    <div id="location_choice_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('location_choice_window')">&times;</span>
+            <h2 id = "location_title">Select target position X</h2>
+            <input type="radio" id="locationChoice1" name="radioChoice" value = "lChoice1">
+            <label id = "location_label1" for="locationChoice1"> Left </label><br>
+            <input type="radio" id="locationChoice2" name="radioChoice" value = "lChoice2">
+            <label for="location_label2"> Middle </label><br>
+            <input type="radio" id="locationChoice3" name="radioChoice" value = "lChoice3">
+            <label id = "location_label3" for="locationChoice3"> Right </label><br>
+            <input type="radio" id="locationChoice4" name="radioChoice" value = "lChoice4">
+            <label for="locationChoice4"> Free </label><br>
+            <button onclick="submitLocationInput('location_choice_window')">Submit</button>
+        </div>
+    </div>
+    <!-- The window that get inputs of SPATIAL PATTERN -->
+    <div id="pattern_choice_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pattern_choice_window')">&times;</span>
+            <h2 >Select spatial pattern</h2>
+            <input type="radio" id="patternChoice1" name="radioChoice" value = "Gridded" onclick="toggleRadioButton(this)">
+            <label for="patternChoice1"> Gridded </label><br>
+            <input type="radio" id="patternChoice2" name="radioChoice" value = "Randomized" onclick="toggleRadioButton(this)">
+            <label for="patternChoice2"> Randomized </label><br>
+            <button onclick="submitRadioInput('pattern_choice_window')">Submit</button>
+        </div>
+    </div>
+
+    <!--
+        The divs of features.
+        There are 6 features now(2023-06-30).
+            LENGTH, SIZE share one div                        ----size_input_window
+            HUE's div                                         ----hue_input_window
+            LUMINANCE's div                                   ----luminance_input_window
+            ORIENTATION's div                                 ----angle_input_window
+            SHAPE's div                                       ----SHAPE_input_window
+    -->
+    <!-- The window that get inputs of setting of LENGTH/SIZE -->
+    <div id="size_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('size_input_window')">&times;</span>
+            <h2 id = "size_title">The <b id = "size_keyword">size</b> of target is <span class="textHighlight">x</span> times of distractors</h2>
+            <label for="input">Input your <span class="textHighlight">x</span>:</label>
+            <input type="number" id="size_input" name="input1">
+            <button onclick="submitSizeInput('size_input_window')">Submit</button>
+            <button onclick="useDeafult('size_input_window')">Adapt Default Value</button>
+        </div>
+    </div>
+    <!-- The window that get inputs of HUE -->
+    <div id="hue_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('hue_input_window')">&times;</span>
+            <h2 id = "hue_title">Choose your hue</h2>
+            <div class="hueContainer">
+                <label for="input">The Target Hue: </label>
+                <input type="range" id="targetHueSlider"  class = "feature-Slider" min="0" max="360" step="1" value="0">
+                <div id="targetHueSample" class = "hue-Sample"></div>
+            </div>
+            <div class="hueContainer">
+                <label for="input">Distractors Hue: <br /></label>
+                <input type="range" id="distractorHueSlider"  class = "feature-Slider" min="0" max="360" step="1" value="0">
+                <div id="distractorHueSample"  class = "hue-Sample"></div>
+            </div>
+            <button onclick="submitHueInput('hue_input_window')">Submit</button>
+            <button onclick="useDeafult('hue_input_window')">Adapt Default Hue</button>
+        </div>
+    </div>
+    <!-- The window that get inputs of LUMINANCE -->
+    <div id="luminance_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('luminance_input_window')">&times;</span>
+            <h2 id = "luminance_title">Choose your luminance</h2>
+            <div class="hueContainer">
+                <label for="input">Target Luminance: <br /></label>
+                <input type="range" id="luminanceSlider"  class = "feature-Slider" min="0" max="100" step="1" value="50">
+                <div id="luminanceSample"  class = "luminance-Sample"></div>
+            </div>
+            <button onclick="submitLuminanceInput('luminance_input_window')">Submit</button>
+            <button onclick="useDeafult('luminance_input_window')">Adapt Default Luminance</button>
+        </div>
+    </div>
+
+    <!-- The window that get inputs of ORIENTATION -->
+    <div id="angle_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('angle_input_window')">&times;</span>
+            <h2 id = "angle_title1">Input the angle of target</h2>
+            <label for="input">Input:</label>
+            <input type="number" id="angle_input1" name="input1">
+            <h2 id = "angle_title2">Input the angle of distractors</h2>
+            <label for="input">Input:</label>
+            <input type="number" id="angle_input2" name="input2"><br><br>
+            <button onclick="submitOrientationInput('angle_input_window')">Submit</button>
+        </div>
+    </div>
+
+     <!-- The window that get inputs of SHAPE -->
+     <div id="shape_input_window" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeShapeModal('shape_input_window')">&times;</span>
+            <h2 id = "shape_title1">Choose the shape of target</h2>
+            <a id = 'targetShape-1' href="#"  onclick = "getTShapeInput(this, 'rectangle')" class="shape-rectangle"></a>
+            <a id = 'targetShape-2' href="#"  onclick = "getTShapeInput(this, 'square')" class="shape-square"></a>
+            <a id = 'targetShape-3' href="#"  onclick = "getTShapeInput(this, 'circle')" class="shape-circle"></a>
+            <h2 id = "shape_title2">Choose the shape of distractors</h2>
+            <a id = 'distractorShape-1' href="#"  onclick = "getDShapeInput(this, 'rectangle')" class="shape-rectangle"></a>
+            <a id = 'distractorShape-2' href="#"  onclick = "getDShapeInput(this, 'square')" class="shape-square"></a>
+            <a id = 'distractorShape-3' href="#"  onclick = "getDShapeInput(this, 'circle')" class="shape-circle"></a>
+            <button onclick="submitShapeInput('shape_input_window')">Submit</button>
+        </div>
+    </div>
+
+
+    
+<button>start</button>
+<input type="radio" id="multiple-feature" data-clicked="false" value = "onefeature"  onclick="toggleRadioOnAndOff(this)">
+<label for="multiple-feature"> Allow multiple features selected simultaneously </label><br>
+
+
+<script>
+
+    //Save the random seed. This function is only for research purpose
+    function SAVE(){
+        saveRandomSeed();
+    }
+
+    function openHueWindow(){
+        openFeatureModal("hue_input_window");
+    }
+
+    function openLuminanceWindow(){
+        openFeatureModal("luminance_input_window");
+    }
+    function openOrientationWindow(){
+        openFeatureModal("angle_input_window");
+    }
+    function openShapeWindow(){
+        openFeatureModal("shape_input_window")
+    }
+
+    function openSizeWindow(flag){
+        const keyword = document.getElementById('size_keyword');
+        keyword.innerText = flag;
+        openFeatureModal("size_input_window", flag);
+    }
+
+    function openNumberWindow(flag){
+        const heading = document.getElementById('number_title');
+        if(flag == 1)
+            heading.innerText = 'Target Number';
+        else if(flag == 2)
+            heading.innerText = 'Element Number';
+        else if(flag == 3)
+            heading.innerText = 'Proximity(inches)';
+        openModal("number_input_window",flag);
+    }
+    function openPatternSetWindow(){
+        openModal("pattern_choice_window");
+    }
+    function openLocationSetWindow(flag){
+        const heading = document.getElementById('location_title');
+        const positionLabel1 = document.getElementById('location_label1');
+        const positionLabel3 = document.getElementById('location_label3');
+        if(flag)
+            {
+                heading.innerText = 'Select horizontal location of the target';
+                positionLabel1.innerText = "Left";
+                positionLabel3.innerText = "Right";
+            }
+        else
+            {
+                
+                heading.innerText = 'Select vertical location of the target';
+                positionLabel1.innerText = "Top";
+                positionLabel3.innerText = "Bottom";
+            }
+        openModal("location_choice_window",flag);
+    }
+
+    function toggleRadioButton(radio)
+    {
+        radioButtons = document.querySelectorAll('input[name="radioChoice"]');
+        radioButtons.forEach(function(radioButton) {
+        if (radioButton != radio) {
+            radioButton.checked = false;
+        }
+        });
+    }
+
+    function toggleRadioOnAndOff(radioButton)
+    {
+        if (radioButton.getAttribute("data-clicked") == "true") {
+            radioButton.checked = false;
+            radioButton.setAttribute("data-clicked", "false");
+        } else {
+            radioButton.setAttribute("data-clicked", "true");
+            radioButton.checked = true;
+        }
+        setIsMultipleFeature(radioButton.checked);
+    }
+    getHueInput();
+    getLuminanceInput();
+    //activate js script
+    generateStimulus({},{}); 
+</script>
+
+<script>
+    function handleFeatureClick(cell, elementId){
+        cell.classList.toggle("cellHighlight");
+        console.log("Clicked element:", elementId);
+    }
+</script>
+</body>
+</html>
