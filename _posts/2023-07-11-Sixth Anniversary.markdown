@@ -7,7 +7,7 @@ thumbnail: /style/image/FFPixel.png
 icon: note
 ---
 
-<img src="pics/FF1.jpg" width="1080" height="720">
+![](/pics/FF1.jpg)
 
 
 **W先生**：
