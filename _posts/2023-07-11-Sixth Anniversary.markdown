@@ -6,7 +6,9 @@ category: letter
 thumbnail: /style/image/FFPixel.png
 icon: note
 ---
-# 六周年信 - FF
+#六周年信 - FF
+
+!(https://github.com/antimelee/antimelee.github.io.git/pics/FF1.png)
 
 **W先生**：
 
@@ -32,6 +34,6 @@ icon: note
 
 &emsp;&emsp;谢谢亲爱的W一直包容我，爱我，无条件给予我支持、鼓励与关心。我期待未来有限的生命中，你一直都在。我们一起继续走下去，年年岁岁。
 
-F小姐
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;F小姐
 
-2023年7月10日于燕园
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2023年7月10日于燕园
