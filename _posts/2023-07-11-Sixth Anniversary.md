@@ -7,7 +7,7 @@ thumbnail: /style/image/FFPixel.png
 icon: note
 ---
 
-![](/pics/FF1.jpg)
+<img src="{{site.url}}/images/FF1.jpg" style="display: block; margin: auto;" /> 
 
 
 **W先生**：
