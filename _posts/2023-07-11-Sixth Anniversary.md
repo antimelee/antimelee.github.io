@@ -2,12 +2,13 @@
 layout: post
 title: "六周年信-FF"
 date: "2023-07-10 23:26:05 +0200"
-category: letter
+category: code
 thumbnail: /style/image/FFPixel.png
 icon: note
 ---
 
-![]( https://github.com/antimelee/antimelee.github.io/blob/3a19f212edf3a69b183e6ab2a3a6f7b4b5b55334/_images/FF1.jpg)
+![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/FFWW1.jpg)
+
 **W先生**：
 
 
@@ -31,8 +32,10 @@ icon: note
 
 &emsp;&emsp;作为你的女盆友，我有时候似乎不是那么称职。我敏感脆弱，有些小脾气，偶尔会无理取闹，担心你不愿意理我，甚至在离别的前几天仍然将你惹哭。在你独自海外求学的日子里，也没有对你 的研究工作给予足够的关心、问候与支持。未来我希望我可以做得更好，用心维系这段不易的感情。每天的每天，都希望你能够拥有好的睡眠，希望你每天开开心心的。 
 
+![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/FF1.jpg)
+
 &emsp;&emsp;谢谢亲爱的W一直包容我，爱我，无条件给予我支持、鼓励与关心。我期待未来有限的生命中，你一直都在。我们一起继续走下去，年年岁岁。
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;F小姐
+F小姐
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;2023年7月10日于燕园
+2023年7月10日于燕园
