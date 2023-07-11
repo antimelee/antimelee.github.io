@@ -7,10 +7,9 @@ thumbnail: /style/image/FFPixel.png
 icon: note
 ---
 
-<img src="{{site.url}}/images/FF1.jpg" style="display: block; margin: auto;" /> 
-
-
+![]( https://github.com/antimelee/antimelee.github.io/blob/3a19f212edf3a69b183e6ab2a3a6f7b4b5b55334/_images/FF1.jpg)
 **W先生**：
+
 
 &emsp;&emsp;汝知吾不甚工于文言，遂白话信一封，以遥寄相思，以慰相知相伴相恋6周年远隔重洋不能共度的遗憾。若言语拙嫩，博君嫣然一笑，亦甚慰吾心。
 
