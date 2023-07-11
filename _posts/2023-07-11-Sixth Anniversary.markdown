@@ -6,9 +6,8 @@ category: letter
 thumbnail: /style/image/FFPixel.png
 icon: note
 ---
-#六周年信 - FF
 
-<img src="[image.png](https://github.com/antimelee/antimelee.github.io/blob/2704c9fa0adb78278773a3097c58bb59592428c2/pics/FF1.jpg)" width="1080" height="720">
+<img src="pics/FF1.jpg" width="1080" height="720">
 
 
 **W先生**：
