@@ -34,6 +34,8 @@ icon: note
 
 ![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/FF1.jpg)
 
+![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/00000730.jpg)
+
 &emsp;&emsp;谢谢亲爱的W一直包容我，爱我，无条件给予我支持、鼓励与关心。我期待未来有限的生命中，你一直都在。我们一起继续走下去，年年岁岁。
 
 F小姐
