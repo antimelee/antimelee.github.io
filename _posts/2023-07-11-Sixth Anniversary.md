@@ -33,9 +33,10 @@ icon: note
 &emsp;&emsp;作为你的女盆友，我有时候似乎不是那么称职。我敏感脆弱，有些小脾气，偶尔会无理取闹，担心你不愿意理我，甚至在离别的前几天仍然将你惹哭。在你独自海外求学的日子里，也没有对你 的研究工作给予足够的关心、问候与支持。未来我希望我可以做得更好，用心维系这段不易的感情。每天的每天，都希望你能够拥有好的睡眠，希望你每天开开心心的。 
 
 ![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/FF1.jpg)
+*戴江樊的美图*
 
 ![](https://cdn.jsdelivr.net/gh/antimelee/media-Pages/image/Daijiangfan.jpeg)
-*戴江樊的美图*
+
 
 &emsp;&emsp;谢谢亲爱的W一直包容我，爱我，无条件给予我支持、鼓励与关心。我期待未来有限的生命中，你一直都在。我们一起继续走下去，年年岁岁。
 
